@@ -5,14 +5,7 @@ export default function AboutPage() {
   return (
     <div style={{ backgroundColor: '#d1d1d1' }}>
 
-
-
-
-
-
-
-
-      {/* Hero Section - Reduced height */}
+      {/* Hero Section */}
       <section className="relative h-[200px] md:h-[250px] flex items-center">
         <div 
           className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
@@ -22,20 +15,12 @@ export default function AboutPage() {
         />
         <div className="absolute inset-0 w-full h-full bg-black/60" />
         <div className="relative w-full container-custom z-10 text-center">
-          <h1 className="text-3xl md:text-4xl font-bold text-white mb-2">Our Gallery</h1>
+          <h1 className="text-3xl md:text-4xl font-bold text-white mb-2">About Us</h1>
           <p className="text-base md:text-lg text-gray-200 max-w-2xl mx-auto">
-            Capturing precious moments of joy, learning, and growth
+            Our story of hope, healing, and transformation
           </p>
         </div>
       </section>
-
-
-
-
-
-
-
-
 
       {/* Main Content */}
       <section className="py-12">
@@ -47,13 +32,27 @@ export default function AboutPage() {
               <h2 className="text-3xl font-bold text-gray-800 mt-2 mb-4">A Beacon of Hope Since 2013</h2>
               <div className="w-16 h-1 bg-amber-500 mb-6"></div>
               <p className="text-gray-600 mb-4 leading-relaxed">
-                Founded in 2013 by a group of passionate community members, Mogonga Children Care has been a beacon of hope for orphaned and vulnerable children in Kisii County, Kenya.
+                The 2007/2008 post-election violence left many families devastated, countless children orphaned, 
+                and communities shattered across Kenya. Kisii County was among the hardest-hit areas, 
+                leaving many vulnerable children without parents or guardians.
               </p>
               <p className="text-gray-600 mb-4 leading-relaxed">
-                What started as a small home caring for just 10 children has blossomed into a thriving community that now supports over 50 children. We provide comprehensive care including shelter, nutrition, education, healthcare, and emotional support.
+                In response to this crisis, Mogonga Children Care was founded in 2013 by a group of 
+                passionate community members who witnessed the growing need for a safe haven. 
+                What started as a small home caring for just 10 children has blossomed into a thriving 
+                community that now supports over 50 children.
+              </p>
+              <p className="text-gray-600 mb-4 leading-relaxed">
+                In the early days, many children were brought to us by well-wishers, local authorities, 
+                and community members who discovered them living in difficult circumstances. 
+                Each child came with their own story of loss and trauma, and we committed ourselves 
+                to providing not just shelter, but healing and hope.
               </p>
               <p className="text-gray-600 leading-relaxed">
-                Our approach combines traditional Kenyan values of communal care with modern child development practices, ensuring every child grows up in a nurturing environment.
+                Today, we provide comprehensive care including shelter, nutrition, education, 
+                healthcare, and emotional support. Our approach combines traditional Kenyan values 
+                of communal care with modern child development practices, ensuring every child 
+                grows up in a nurturing environment.
               </p>
             </div>
             <div className="relative">
@@ -75,7 +74,7 @@ export default function AboutPage() {
               <div className="text-gray-600 text-sm">Children Cared For</div>
             </div>
             <div className="bg-white rounded-xl p-5 text-center shadow-md hover:shadow-lg transition">
-              <div className="text-3xl font-bold text-emerald-600 mb-1">14+</div>
+              <div className="text-3xl font-bold text-emerald-600 mb-1">12+</div>
               <div className="text-gray-600 text-sm">Years of Service</div>
             </div>
             <div className="bg-white rounded-xl p-5 text-center shadow-md hover:shadow-lg transition">
@@ -96,7 +95,9 @@ export default function AboutPage() {
               </div>
               <h3 className="text-xl font-bold text-gray-800 mb-3">Our Mission</h3>
               <p className="text-gray-600 leading-relaxed">
-                To provide holistic care, love, and support to orphaned and vulnerable children, empowering them to reach their full potential through quality education, healthcare, and life skills development.
+                To provide holistic care, love, and support to orphaned and vulnerable children, 
+                empowering them to reach their full potential through quality education, healthcare, 
+                and life skills development.
               </p>
             </div>
             
@@ -106,7 +107,8 @@ export default function AboutPage() {
               </div>
               <h3 className="text-xl font-bold text-gray-800 mb-3">Our Vision</h3>
               <p className="text-gray-600 leading-relaxed">
-                A world where every child grows up in a loving family environment with access to quality education and healthcare, becoming responsible, productive members of society.
+                A world where every child grows up in a loving family environment with access to 
+                quality education and healthcare, becoming responsible, productive members of society.
               </p>
             </div>
           </div>
