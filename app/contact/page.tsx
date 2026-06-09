@@ -17,11 +17,11 @@ export default function ContactPage() {
             </div>
             <div className="flex items-start gap-4">
               <Phone className="h-6 w-6 text-emerald-600 mt-1" />
-              <div><h3 className="font-semibold">Phone</h3><p>+254 712 345 678</p></div>
+              <div><h3 className="font-semibold">Phone</h3><p>+254 712 713 601</p></div>
             </div>
             <div className="flex items-start gap-4">
               <Mail className="h-6 w-6 text-emerald-600 mt-1" />
-              <div><h3 className="font-semibold">Email</h3><p>info@mogongachildren.org</p></div>
+              <div><h3 className="font-semibold">Email</h3><p>evansmanoti@yahoo.com</p></div>
             </div>
           </div>
         </div>

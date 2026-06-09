@@ -16,58 +16,82 @@ export default function GalleryPage() {
   const [duration, setDuration] = useState(0)
 
   const galleryItems = [
-    // Images
+    // Video 1 - Children being served rice
     {
       id: 1,
-      title: "Learning Time",
-      description: "Children engaged in educational activities and homework sessions with our dedicated teachers.",
-      category: "Education",
-      type: "image",
-      mediaUrl: "https://images.unsplash.com/photo-1509062522246-3755977927d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      date: "March 2024"
+      title: "Meal Time - Serving Rice",
+      description: "Children being served nutritious rice during lunch time at Mogonga Children Care.",
+      category: "Meals",
+      type: "video",
+      mediaUrl: "/videos/serving-rice.mp4",
+      poster: "/images/serving-rice-poster.jpg",
+      date: "June 2024"
     },
+    // Video 2 - Children drinking tea and eating bananas
     {
       id: 2,
+      title: "Breakfast Time - Tea & Ndizi",
+      description: "Children enjoying their morning tea with ndizi (bananas) for breakfast.",
+      category: "Meals",
+      type: "video",
+      mediaUrl: "/videos/tea-and-ndizi.mp4",
+      poster: "/images/tea-ndizi-poster.jpg",
+      date: "June 2024"
+    },
+    // Image 1 - Children washing hands in a queue
+    {
+      id: 3,
+      title: "Hand Washing Routine",
+      description: "Children lining up to wash their hands before eating, promoting good hygiene practices.",
+      category: "Daily Life",
+      type: "image",
+      mediaUrl: "/images/hand-washing-queue.jpg",
+      date: "May 2024"
+    },
+    // Image 2 - Children after raising the flag
+    {
+      id: 4,
+      title: "Flag Raising Ceremony",
+      description: "Children gathered for the morning flag raising ceremony, showing patriotism.",
+      category: "Activities",
+      type: "image",
+      mediaUrl: "/images/flag-raising.jpg",
+      date: "May 2024"
+    },
+    // Image 3 - Children eating inside the classroom
+    {
+      id: 5,
+      title: "Lunch in Classroom",
+      description: "Children enjoying their lunch together inside the classroom.",
+      category: "Meals",
+      type: "image",
+      mediaUrl: "/images/eating-in-class.jpg",
+      date: "May 2024"
+    },
+    // Additional video - Play & Recreation (keep existing)
+    {
+      id: 6,
       title: "Play & Recreation",
       description: "Fun-filled playtime activities that promote physical health and social bonding.",
       category: "Activities",
-      type: "image",
-      mediaUrl: "https://images.unsplash.com/photo-1593113630400-ea4288922497?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      type: "video",
+      mediaUrl: "/videos/play-recreation.mp4",
+      poster: "/images/play-recreation-poster.png",
       date: "February 2024"
     },
+    // Additional image - Learning Time
     {
-      id: 3,
-      title: "Nutritious Meals",
-      description: "Healthy, balanced meals prepared daily to ensure proper nutrition for growing children.",
-      category: "Daily Life",
+      id: 7,
+      title: "Learning Time",
+      description: "Children engaged in educational activities with our dedicated teachers.",
+      category: "Education",
       type: "image",
-      mediaUrl: "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      date: "January 2024"
-    },
-
-
-
-
-
-
-{
-  id: 4,
-  title: "Children's Day Celebration",
-  description: "Watch our children perform traditional dances.",
-  category: "Celebrations",
-  type: "video",
-  mediaUrl: "/videos/children-celebration.mp4",  // Local video
-  poster: "/images/children-poster.jpg",  // Optional thumbnail
-  date: "December 2023"
-}
-
-
-
-
-
+      mediaUrl: "/images/learning-time.jpg",
+      date: "March 2024"
+    }
   ]
 
-  const categories = ['All', 'Education', 'Activities', 'Celebrations', 'Sports']
+  const categories = ['All', 'Meals', 'Daily Life', 'Activities', 'Education']
 
   const filteredItems = activeCategory === 'All' 
     ? galleryItems 
@@ -133,7 +157,6 @@ export default function GalleryPage() {
     return `${mins}:${secs.toString().padStart(2, '0')}`
   }
 
-  // Handle fullscreen change
   useEffect(() => {
     const handleFullscreenChange = () => {
       setIsFullscreen(!!document.fullscreenElement)
@@ -143,23 +166,56 @@ export default function GalleryPage() {
   }, [])
 
   return (
-    <div style={{ backgroundColor: '#f0f9f4' }}>
+    <div style={{ backgroundColor: '#d1d1d1' }}>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       {/* Hero Section */}
-      <section className="relative h-[300px] md:h-[350px] flex items-center">
+      <section className="relative h-[200px] md:h-[250px] flex items-center">
         <div 
           className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')"
+            backgroundImage: "url('/images/gallery-hero.jpg')"
           }}
         />
         <div className="absolute inset-0 w-full h-full bg-black/60" />
         <div className="relative w-full container-custom z-10 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Our Gallery</h1>
-          <p className="text-xl text-gray-200 max-w-2xl mx-auto">
+          <h1 className="text-3xl md:text-4xl font-bold text-white mb-2">Our Gallery</h1>
+          <p className="text-base md:text-lg text-gray-200 max-w-2xl mx-auto">
             Capturing precious moments of joy, learning, and growth
           </p>
         </div>
       </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
       {/* Gallery Grid */}
       <section className="py-20">
@@ -186,7 +242,7 @@ export default function GalleryPage() {
             {filteredItems.map((item) => (
               <div 
                 key={item.id} 
-                className="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 cursor-pointer"
+                className="group bg-gray-200 rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 cursor-pointer"
                 onClick={() => setSelectedMedia({ type: item.type, url: item.mediaUrl, title: item.title, poster: item.poster })}
               >
                 <div className="relative h-64 overflow-hidden">
@@ -250,7 +306,7 @@ export default function GalleryPage() {
         </div>
       </section>
 
-      {/* Modal for viewing images/videos - SMALLER SIZE */}
+      {/* Modal for viewing images/videos */}
       {selectedMedia && (
         <div 
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4"
@@ -265,7 +321,6 @@ export default function GalleryPage() {
             onClick={(e) => e.stopPropagation()}
             style={{ maxHeight: '90vh' }}
           >
-            {/* Header */}
             <div className="flex items-center justify-between p-3 bg-emerald-600 text-white">
               <h3 className="text-lg font-semibold truncate flex-1">{selectedMedia.title}</h3>
               <button
@@ -279,7 +334,6 @@ export default function GalleryPage() {
               </button>
             </div>
             
-            {/* Media Content */}
             <div className="relative bg-black">
               {selectedMedia.type === 'video' ? (
                 <div className="relative">
@@ -296,9 +350,7 @@ export default function GalleryPage() {
                     autoPlay
                   />
                   
-                  {/* Custom Video Controls - Compact */}
                   <div className="bg-gradient-to-t from-black/90 to-transparent pt-8 pb-3 px-3">
-                    {/* Progress Bar */}
                     <div className="mb-3">
                       <input
                         type="range"
@@ -317,7 +369,6 @@ export default function GalleryPage() {
                       </div>
                     </div>
                     
-                    {/* Control Buttons */}
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2">
                         <button

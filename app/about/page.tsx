@@ -3,23 +3,39 @@ import { Heart, Target, Award, Users, Home, BookOpen, Stethoscope, Smile, Clock,
 
 export default function AboutPage() {
   return (
-    <div style={{ backgroundColor: '#f0f9f4' }}>
-      {/* Hero Section */}
-      <section className="relative h-[350px] flex items-center">
+    <div style={{ backgroundColor: '#d1d1d1' }}>
+
+
+
+
+
+
+
+
+      {/* Hero Section - Reduced height */}
+      <section className="relative h-[200px] md:h-[250px] flex items-center">
         <div 
           className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')"
+            backgroundImage: "url('/images/gallery-hero.jpg')"
           }}
         />
         <div className="absolute inset-0 w-full h-full bg-black/60" />
         <div className="relative w-full container-custom z-10 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">About Mogonga Children Care</h1>
-          <p className="text-xl text-gray-200 max-w-2xl mx-auto">
-            Providing hope, love, and a brighter future for over 50 children since 2010
+          <h1 className="text-3xl md:text-4xl font-bold text-white mb-2">Our Gallery</h1>
+          <p className="text-base md:text-lg text-gray-200 max-w-2xl mx-auto">
+            Capturing precious moments of joy, learning, and growth
           </p>
         </div>
       </section>
+
+
+
+
+
+
+
+
 
       {/* Main Content */}
       <section className="py-12">
@@ -28,10 +44,10 @@ export default function AboutPage() {
           <div className="grid lg:grid-cols-2 gap-10 items-center mb-12">
             <div>
               <span className="text-emerald-600 font-semibold text-sm uppercase tracking-wide">Our Story</span>
-              <h2 className="text-3xl font-bold text-gray-800 mt-2 mb-4">A Beacon of Hope Since 2010</h2>
+              <h2 className="text-3xl font-bold text-gray-800 mt-2 mb-4">A Beacon of Hope Since 2013</h2>
               <div className="w-16 h-1 bg-amber-500 mb-6"></div>
               <p className="text-gray-600 mb-4 leading-relaxed">
-                Founded in 2010 by a group of passionate community members, Mogonga Children Care has been a beacon of hope for orphaned and vulnerable children in Kisii County, Kenya.
+                Founded in 2013 by a group of passionate community members, Mogonga Children Care has been a beacon of hope for orphaned and vulnerable children in Kisii County, Kenya.
               </p>
               <p className="text-gray-600 mb-4 leading-relaxed">
                 What started as a small home caring for just 10 children has blossomed into a thriving community that now supports over 50 children. We provide comprehensive care including shelter, nutrition, education, healthcare, and emotional support.
@@ -54,7 +70,7 @@ export default function AboutPage() {
 
           {/* Stats Cards */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
-            <div className="bg-white rounded-xl p-5 text-center shadow-md hover:shadow-lg transition">
+            <div className="bg-gray-200 rounded-xl p-5 text-center shadow-md hover:shadow-lg transition">
               <div className="text-3xl font-bold text-emerald-600 mb-1">50+</div>
               <div className="text-gray-600 text-sm">Children Cared For</div>
             </div>

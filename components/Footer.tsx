@@ -35,7 +35,7 @@ const COLORS = {
 const FOOTER_CONFIG = {
   // Organization info
   orgName: 'Mogonga Care',
-  orgDescription: 'Providing hope, love, and education to orphaned and vulnerable children in Kisii, Kenya since 2010.',
+  orgDescription: 'Providing hope, love, and education to orphaned and vulnerable children in Kisii, Kenya since 2013.',
   
   // Quick links
   quickLinks: [
@@ -48,8 +48,8 @@ const FOOTER_CONFIG = {
   // Contact info
   contactInfo: {
     address: 'Mogonga, Kisii County, Kenya',
-    phone: '+254 712 345 678',
-    email: 'info@mogongachildren.org',
+    phone: '+254 712 713 601',
+    email: 'evansmanoti@yahoo.com',
   },
   
   // Social media links

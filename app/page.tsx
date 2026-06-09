@@ -1,17 +1,28 @@
+'use client'
 import Link from 'next/link'
-import { Heart, Users, GraduationCap, ArrowRight, Calendar, Award, Target } from 'lucide-react'
+import { Heart, Users, GraduationCap, ArrowRight, Calendar, Award, Target,Play,X  } from 'lucide-react'
+import { useState } from 'react' 
+
 
 export default function HomePage() {
+
+const [videoModal, setVideoModal] = useState({ isOpen: false, src: '', title: '' })
+
   return (
     <div>
       {/* Hero Section */}
       <section className="relative h-[500px] md:h-[520px] flex items-center justify-center text-center">
+
         <div 
           className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')"
+
+            backgroundImage: "url('/images/hero-bg.jpg')"
+
           }}
         />
+
+
         <div className="absolute inset-0 w-full h-full bg-black/60" />
         <div className="relative w-full container-custom z-10">
           <div className="max-w-4xl mx-auto">
@@ -49,14 +60,14 @@ export default function HomePage() {
             <div className="relative group">
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <img 
-                  src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+                  src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
                   alt="Children at Mogonga Children Care"
                   className="w-full h-[380px] object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
               </div>
               <div className="absolute -bottom-5 -right-5 bg-amber-500 text-white p-3 rounded-xl shadow-lg hidden md:block">
-                <div className="text-xl font-bold">14+</div>
+                <div className="text-xl font-bold">12+</div>
                 <div className="text-xs">Years of Service</div>
               </div>
             </div>
@@ -66,12 +77,12 @@ export default function HomePage() {
               <div className="mb-5">
                 <span className="text-emerald-600 font-semibold text-sm uppercase tracking-wide">Our Story</span>
                 <h3 className="text-2xl md:text-3xl font-bold text-gray-800 mt-2 mb-3">
-                  Providing Hope & Healing Since 2010
+                  Providing Hope & Healing Since 2013
                 </h3>
               </div>
               
               <p className="text-gray-600 mb-3 leading-relaxed">
-                Mogonga Children Care was founded in 2010 by a group of passionate community members who saw the growing need for a safe haven for orphaned and vulnerable children in Kisii County, Kenya.
+                Mogonga Children Care was founded in 2013 by a group of passionate community members who saw the growing need for a safe haven for orphaned and vulnerable children in Kisii County, Kenya.
               </p>
               
               <p className="text-gray-600 mb-5 leading-relaxed">
@@ -127,7 +138,7 @@ export default function HomePage() {
             <div className="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300">
               <div className="relative h-56 overflow-hidden">
                 <img 
-                  src="https://images.unsplash.com/photo-1509062522246-3755977927d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                  src="/images/learning-time.jpg"
                   alt="Children studying together"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
@@ -142,17 +153,52 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Gallery Item 2 */}
-            <div className="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300">
+
+
+
+
+
+
+
+
+
+
+
+            {/* Gallery Item 2 - Video */}
+            <div 
+              className="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 cursor-pointer"
+              onClick={() => setVideoModal({ 
+                isOpen: true, 
+                src: "/videos/play-recreation.mp4", 
+                title: "Play & Recreation" 
+              })}
+            >
               <div className="relative h-56 overflow-hidden">
-                <img 
-                  src="https://images.unsplash.com/photo-1593113630400-ea4288922497?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                  alt="Children playing together"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                <video 
+                  src="/videos/play-recreation.mp4"
+                  poster="/images/play-recreation-poster.jpg"
+                  className="h-full w-[100%] object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                  muted
+                  loop
+                  playsInline
+                  onMouseEnter={(e) => e.currentTarget.play()}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.pause();
+                    e.currentTarget.currentTime = 0;
+                  }}
                 />
+                {/* Play button overlay */}
+                <div className="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="bg-white/90 rounded-full p-3 group-hover:scale-110 transition-transform duration-300">
+                    <Play className="h-6 w-6 text-emerald-600 ml-0.5" />
+                  </div>
+                </div>
               </div>
               <div className="p-4">
-                <h3 className="text-lg font-semibold text-gray-800 mb-1">Play & Recreation</h3>
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="text-xs bg-red-500 text-white px-2 py-0.5 rounded-full">VIDEO</span>
+                  <h3 className="text-lg font-semibold text-gray-800">Play & Recreation</h3>
+                </div>
                 <p className="text-gray-600 text-sm">Fun outdoor activities for physical health.</p>
                 <div className="mt-2 flex items-center gap-2 text-xs text-emerald-600">
                   <Calendar className="h-3 w-3" />
@@ -161,11 +207,18 @@ export default function HomePage() {
               </div>
             </div>
 
+
+
+
+
+
+
+
             {/* Gallery Item 3 */}
             <div className="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300">
               <div className="relative h-56 overflow-hidden">
                 <img 
-                  src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                  src="/images/meal-time.jpg"
                   alt="Meal time"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
@@ -247,7 +300,50 @@ export default function HomePage() {
             Donate Now
           </Link>
         </div>
+
+
+
+
       </section>
+
+
+
+
+
+
+      {/* Video Modal */}
+      {videoModal.isOpen && (
+        <div 
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm"
+          onClick={() => setVideoModal({ isOpen: false, src: '', title: '' })}
+        >
+          <div 
+            className="relative max-w-4xl w-full mx-4 bg-black rounded-2xl overflow-hidden"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setVideoModal({ isOpen: false, src: '', title: '' })}
+              className="absolute top-4 right-4 z-10 bg-black/50 hover:bg-black/70 rounded-full p-2 transition-all duration-300"
+            >
+              <X className="h-6 w-6 text-white" />
+            </button>
+            
+            <div className="p-4 bg-emerald-600 text-white">
+              <h3 className="text-xl font-semibold">{videoModal.title}</h3>
+            </div>
+            
+            <div className="relative aspect-video">
+              <video
+                src={videoModal.src}
+                className="w-full h-full object-contain"
+                controls
+                autoPlay
+                playsInline
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
