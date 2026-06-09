@@ -88,13 +88,13 @@ export default function Navbar() {
               className="md:hidden p-2 rounded-lg hover:bg-emerald-100 transition-colors z-50"
               aria-label="Toggle menu"
             >
-              {isOpen ? <X className="h-6 w-6 text-gray-700" /> : <Menu className="h-6 w-6 text-gray-700" />}
+              <Menu className="h-6 w-6 text-gray-700" />
             </button>
           </div>
         </div>
       </nav>
 
-      {/* Mobile Menu Modal - Appears BELOW the navbar */}
+      {/* Mobile Menu Modal - Simplified, no duplicate header */}
       <div 
         className={`fixed left-0 right-0 transition-all duration-300 ease-out md:hidden ${
           isOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
@@ -111,36 +111,20 @@ export default function Navbar() {
           onClick={() => setIsOpen(false)}
         />
         
-        {/* Menu Panel - Slides from top */}
+        {/* Menu Panel - Simple menu without extra header */}
         <div 
           className={`absolute left-0 right-0 bg-[#f0f9f4] shadow-2xl transition-all duration-300 ease-out ${
             isOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
           }`}
           style={{ top: 0 }}
         >
-          {/* Menu Header */}
-          <div className="flex justify-between items-center p-4 border-b border-emerald-100">
-            <div className="flex items-center space-x-2">
-              <Heart className="h-6 w-6 text-emerald-600 fill-emerald-600" />
-              <span className="font-bold text-gray-800">
-                Mogonga<span className="text-emerald-600">Care</span>
-              </span>
-            </div>
-            <button
-              onClick={() => setIsOpen(false)}
-              className="p-2 rounded-full hover:bg-emerald-100 transition-colors"
-            >
-              <X className="h-5 w-5 text-gray-600" />
-            </button>
-          </div>
-
-          {/* Menu Links */}
-          <div className="flex flex-col p-4 space-y-1 max-h-[calc(100vh-120px)] overflow-y-auto">
+          {/* Simple Menu Links - No duplicate logo or close button */}
+          <div className="flex flex-col p-6 space-y-2">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
-                className="text-gray-700 hover:text-emerald-600 font-medium text-base py-3 px-4 rounded-lg hover:bg-emerald-50 transition-all duration-200"
+                className="text-gray-700 hover:text-emerald-600 font-medium text-lg py-3 px-4 rounded-lg hover:bg-emerald-50 transition-all duration-200"
                 onClick={handleLinkClick}
               >
                 {link.name}
@@ -168,7 +152,7 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Spacer to prevent content from hiding under fixed navbar */}
+      {/* Spacer */}
       <div className="h-16 md:h-20"></div>
     </>
   )
