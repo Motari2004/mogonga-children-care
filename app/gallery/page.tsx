@@ -68,7 +68,7 @@ export default function GalleryPage() {
       mediaUrl: "/images/eating-in-class.jpg",
       date: "May 2024"
     },
-    // Additional video - Play & Recreation (keep existing)
+    // Additional video - Play & Recreation
     {
       id: 6,
       title: "Play & Recreation",
@@ -168,22 +168,6 @@ export default function GalleryPage() {
   return (
     <div style={{ backgroundColor: '#d1d1d1' }}>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
       {/* Hero Section */}
       <section className="relative h-[200px] md:h-[250px] flex items-center">
         <div 
@@ -200,22 +184,6 @@ export default function GalleryPage() {
           </p>
         </div>
       </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
       {/* Gallery Grid */}
       <section className="py-20">
@@ -237,7 +205,7 @@ export default function GalleryPage() {
             ))}
           </div>
 
-          {/* Gallery Grid */}
+          {/* Gallery Grid - Optimized for faster loading */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredItems.map((item) => (
               <div 
@@ -245,16 +213,31 @@ export default function GalleryPage() {
                 className="group bg-gray-200 rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 cursor-pointer"
                 onClick={() => setSelectedMedia({ type: item.type, url: item.mediaUrl, title: item.title, poster: item.poster })}
               >
-                <div className="relative h-64 overflow-hidden">
+                <div className="relative h-64 overflow-hidden bg-gray-100">
                   {item.type === 'video' ? (
                     <>
+                      {/* Poster image loads first - fast */}
+                      <img 
+                        src={item.poster}
+                        alt={item.title}
+                        className="w-full h-full object-cover group-hover:opacity-0 transition-opacity duration-300"
+                        loading="lazy"
+                      />
+                      {/* Video loads only on hover - saves bandwidth */}
                       <video 
                         src={item.mediaUrl}
-                        poster={item.poster}
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                        preload="metadata"
+                        className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                        preload="none"
+                        muted
+                        loop
+                        playsInline
+                        onMouseEnter={(e) => e.currentTarget.play()}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.pause();
+                          e.currentTarget.currentTime = 0;
+                        }}
                       />
-                      <div className="absolute inset-0 bg-black/30 flex items-center justify-center group-hover:bg-black/40 transition-all duration-300">
+                      <div className="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                         <div className="bg-white/90 rounded-full p-4 group-hover:scale-110 transition-transform duration-300">
                           <Play className="h-8 w-8 text-emerald-600 ml-0.5" />
                         </div>
@@ -265,6 +248,7 @@ export default function GalleryPage() {
                       src={item.mediaUrl}
                       alt={item.title}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      loading="lazy"
                     />
                   )}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-start p-4">
@@ -306,7 +290,7 @@ export default function GalleryPage() {
         </div>
       </section>
 
-      {/* Modal for viewing images/videos */}
+      {/* Modal for viewing images/videos - Optimized */}
       {selectedMedia && (
         <div 
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4"
@@ -343,6 +327,7 @@ export default function GalleryPage() {
                     poster={selectedMedia.poster}
                     className="w-full max-h-[50vh] object-contain"
                     controls={false}
+                    preload="auto"
                     onPlay={() => setIsPlaying(true)}
                     onPause={() => setIsPlaying(false)}
                     onTimeUpdate={handleTimeUpdate}
@@ -412,6 +397,7 @@ export default function GalleryPage() {
                   src={selectedMedia.url}
                   alt={selectedMedia.title}
                   className="w-full max-h-[70vh] object-contain"
+                  loading="lazy"
                 />
               )}
             </div>
