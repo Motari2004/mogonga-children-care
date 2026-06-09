@@ -176,7 +176,7 @@ const [videoModal, setVideoModal] = useState({ isOpen: false, src: '', title: ''
               <div className="relative h-56 overflow-hidden">
                 <video 
                   src="/videos/play-recreation.mp4"
-                  poster="/images/play-recreation-poster.jpg"
+                  poster="/images/play-recreation-poster.png"
                   className="h-full w-[100%] object-cover object-center group-hover:scale-105 transition-transform duration-500"
                   muted
                   loop

@@ -76,7 +76,7 @@ export default function GalleryPage() {
       category: "Activities",
       type: "video",
       mediaUrl: "/videos/play-recreation.mp4",
-      poster: "/images/play-recreation-poster.jpg",
+      poster: "/images/play-recreation-poster.png",
       date: "February 2024"
     },
     // Additional image - Learning Time
