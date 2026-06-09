@@ -146,12 +146,7 @@ export default function Navbar() {
               </Link>
             </div>
 
-            {/* Contact Info */}
-            <div className="pt-6 mt-2 border-t border-emerald-100">
-              <p className="text-sm text-emerald-600 font-semibold mb-2">Contact Us</p>
-              <p className="text-sm text-gray-600 mb-1">📞 +254 712 345 678</p>
-              <p className="text-sm text-gray-600">📧 info@mogongachildren.org</p>
-            </div>
+
           </div>
         </div>
       </div>
