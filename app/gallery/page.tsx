@@ -24,7 +24,7 @@ export default function GalleryPage() {
       category: "Meals",
       type: "video",
       mediaUrl: "/videos/serving-rice.mp4",
-      poster: "/images/serving-rice-poster.jpg",
+      poster: "/images/serving-rice-poster.png",
       date: "June 2024"
     },
     // Video 2 - Children drinking tea and eating bananas
