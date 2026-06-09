@@ -82,25 +82,29 @@ export default function Navbar() {
               </Link>
             </div>
 
-            {/* Hamburger Button - Mobile only */}
+            {/* Hamburger Menu Button - Mobile only - Changes to X when open */}
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="md:hidden p-2 rounded-lg hover:bg-emerald-100 transition-colors z-50"
               aria-label="Toggle menu"
             >
-              <Menu className="h-6 w-6 text-gray-700" />
+              {isOpen ? (
+                <X className="h-6 w-6 text-gray-700" />
+              ) : (
+                <Menu className="h-6 w-6 text-gray-700" />
+              )}
             </button>
           </div>
         </div>
       </nav>
 
-      {/* Mobile Menu Modal - Simplified, no duplicate header */}
+      {/* Mobile Menu Modal */}
       <div 
         className={`fixed left-0 right-0 transition-all duration-300 ease-out md:hidden ${
           isOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
         }`}
         style={{
-          top: '64px', // Height of navbar on mobile (h-16 = 64px)
+          top: '64px',
           bottom: 0,
           zIndex: 40
         }}
@@ -111,14 +115,14 @@ export default function Navbar() {
           onClick={() => setIsOpen(false)}
         />
         
-        {/* Menu Panel - Simple menu without extra header */}
+        {/* Menu Panel */}
         <div 
           className={`absolute left-0 right-0 bg-[#f0f9f4] shadow-2xl transition-all duration-300 ease-out ${
             isOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
           }`}
           style={{ top: 0 }}
         >
-          {/* Simple Menu Links - No duplicate logo or close button */}
+          {/* Menu Links */}
           <div className="flex flex-col p-6 space-y-2">
             {navLinks.map((link) => (
               <Link
