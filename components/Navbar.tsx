@@ -94,11 +94,16 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* Mobile Menu Modal - Completely separate from navbar */}
+      {/* Mobile Menu Modal - Appears BELOW the navbar */}
       <div 
-        className={`fixed inset-0 z-40 transition-all duration-300 md:hidden ${
-          isOpen ? 'visible opacity-100' : 'invisible opacity-0'
+        className={`fixed left-0 right-0 transition-all duration-300 ease-out md:hidden ${
+          isOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
         }`}
+        style={{
+          top: '64px', // Height of navbar on mobile (h-16 = 64px)
+          bottom: 0,
+          zIndex: 40
+        }}
       >
         {/* Backdrop */}
         <div 
@@ -106,17 +111,18 @@ export default function Navbar() {
           onClick={() => setIsOpen(false)}
         />
         
-        {/* Menu Panel - Slides from right */}
+        {/* Menu Panel - Slides from top */}
         <div 
-          className={`absolute top-0 right-0 h-full w-80 bg-[#f0f9f4] shadow-2xl transition-transform duration-300 ease-out ${
-            isOpen ? 'translate-x-0' : 'translate-x-full'
+          className={`absolute left-0 right-0 bg-[#f0f9f4] shadow-2xl transition-all duration-300 ease-out ${
+            isOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
           }`}
+          style={{ top: 0 }}
         >
           {/* Menu Header */}
-          <div className="flex justify-between items-center p-6 border-b border-emerald-100">
+          <div className="flex justify-between items-center p-4 border-b border-emerald-100">
             <div className="flex items-center space-x-2">
-              <Heart className="h-7 w-7 text-emerald-600 fill-emerald-600" />
-              <span className="font-bold text-lg text-gray-800">
+              <Heart className="h-6 w-6 text-emerald-600 fill-emerald-600" />
+              <span className="font-bold text-gray-800">
                 Mogonga<span className="text-emerald-600">Care</span>
               </span>
             </div>
@@ -129,12 +135,12 @@ export default function Navbar() {
           </div>
 
           {/* Menu Links */}
-          <div className="flex flex-col p-6 space-y-2">
+          <div className="flex flex-col p-4 space-y-1 max-h-[calc(100vh-120px)] overflow-y-auto">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
-                className="text-gray-700 hover:text-emerald-600 font-medium text-lg py-3 px-4 rounded-lg hover:bg-emerald-50 transition-all duration-200"
+                className="text-gray-700 hover:text-emerald-600 font-medium text-base py-3 px-4 rounded-lg hover:bg-emerald-50 transition-all duration-200"
                 onClick={handleLinkClick}
               >
                 {link.name}
@@ -142,7 +148,7 @@ export default function Navbar() {
             ))}
             
             {/* Donate Button in Mobile Menu */}
-            <div className="pt-4">
+            <div className="pt-2">
               <Link
                 href="/support"
                 className="block bg-emerald-600 hover:bg-emerald-700 text-white text-center px-6 py-3 rounded-lg font-semibold transition-all duration-300"
@@ -153,10 +159,10 @@ export default function Navbar() {
             </div>
 
             {/* Contact Info */}
-            <div className="pt-8 mt-4 border-t border-emerald-100">
-              <p className="text-sm text-emerald-600 font-semibold mb-3">Contact Us</p>
-              <p className="text-sm text-gray-600 mb-2">📞 {navLinks.contactInfo?.phone || '+254 712 345 678'}</p>
-              <p className="text-sm text-gray-600">📧 {navLinks.contactInfo?.email || 'info@mogongachildren.org'}</p>
+            <div className="pt-6 mt-2 border-t border-emerald-100">
+              <p className="text-sm text-emerald-600 font-semibold mb-2">Contact Us</p>
+              <p className="text-sm text-gray-600 mb-1">📞 +254 712 345 678</p>
+              <p className="text-sm text-gray-600">📧 info@mogongachildren.org</p>
             </div>
           </div>
         </div>
