@@ -1,30 +1,21 @@
 'use client'
 
 import Link from 'next/link'
-import { Heart, Mail, Phone, MapPin } from 'lucide-react'
-import { FaFacebookF, FaTwitter, FaInstagram, FaYoutube, FaTiktok, FaLinkedinIn } from 'react-icons/fa'
+import { Heart, Mail, Phone, MapPin, ExternalLink } from 'lucide-react'
+import { FaFacebookF, FaTwitter, FaInstagram, FaYoutube, FaTiktok } from 'react-icons/fa'
 import { useState } from 'react'
 
 // ============================================
 // EASY CONFIGURATION - Change these variables
 // ============================================
 const COLORS = {
-  // Footer backgrounds
-  footerBg: '#cccccc',           // Main footer background (gray-900)
-  
-  // Text colors
-  textPrimary: '#000000',        // Primary text color (white)
-  textSecondary: '#414141',      // Secondary text color (gray-300)
-  textMuted: '#5e5e5e',          // Muted text color (gray-400)
-  textHover: '#34d399',          // Hover text color (emerald-400)
-  
-  // Icon colors
-  iconColor: '#10b981',          // Heart icon color (emerald-500)
-  
-  // Border colors
-  borderColor: '#1f2937',        // Border color (gray-800)
-  
-  // Social media colors
+  footerBg: '#111827',
+  textPrimary: '#ffffff',
+  textSecondary: '#d1d5db',
+  textMuted: '#9ca3af',
+  textHover: '#34d399',
+  iconColor: '#10b981',
+  borderColor: '#1f2937',
   socialFacebook: '#1877f2',
   socialTwitter: '#1da1f2',
   socialInstagram: 'linear-gradient(135deg, #f09433 0%, #bc1888 100%)',
@@ -33,11 +24,9 @@ const COLORS = {
 }
 
 const FOOTER_CONFIG = {
-  // Organization info
   orgName: 'Mogonga Care',
-  orgDescription: 'Providing hope, love, and education to orphaned and vulnerable children in Kisii, Kenya since 2013.',
+  orgDescription: 'Providing hope, love, and education to orphaned and vulnerable children in Kisii, Kenya since 2010.',
   
-  // Quick links
   quickLinks: [
     { name: 'About Us', href: '/about' },
     { name: 'Gallery', href: '/gallery' },
@@ -45,14 +34,16 @@ const FOOTER_CONFIG = {
     { name: 'Contact Us', href: '/contact' },
   ],
   
-  // Contact info
+  // Updated with real map coordinates for Mogonga, Kisii
   contactInfo: {
-    address: 'Mogonga, Kisii County, Kenya',
+    address: 'Mogonga Village, Kisii County, Kenya',
+    addressFull: 'Mogonga Village, Kisii County, Kenya',
+    mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Mogonga+Kisii+Kenya',
+    mapsEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15955.472654059368!2d34.7666!3d-0.6833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182b3c7f8e2b4b4b%3A0x8b4b4b4b4b4b4b4b!2sMogonga%2C%20Kenya!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s',
     phone: '+254 712 713 601',
-    email: 'evansmanoti@yahoo.com',
+    email: 'info@mogongachildren.org',
   },
   
-  // Social media links
   socialLinks: {
     facebook: 'https://facebook.com/mogongachildren',
     twitter: 'https://twitter.com/mogongachildren',
@@ -61,21 +52,18 @@ const FOOTER_CONFIG = {
     tiktok: 'https://tiktok.com/@mogongachildren',
   },
   
-  // Working hours
   workingHours: {
     weekday: 'Monday - Friday: 8:00 AM - 5:00 PM',
     saturday: 'Saturday: 9:00 AM - 1:00 PM',
     sunday: 'Sunday: Closed',
   },
   
-  // Bottom bar links
   bottomLinks: [
     { name: 'Privacy Policy', href: '/privacy' },
     { name: 'Terms of Service', href: '/terms' },
     { name: 'FAQ', href: '/faq' },
   ],
   
-  // Show/hide sections
   showQuickLinks: true,
   showContactInfo: true,
   showSocialLinks: true,
@@ -86,7 +74,6 @@ const FOOTER_CONFIG = {
 
 export default function Footer() {
   const [hoveredLink, setHoveredLink] = useState<string | null>(null)
-  const [hoveredSocial, setHoveredSocial] = useState<string | null>(null)
 
   return (
     <footer style={{ backgroundColor: COLORS.footerBg, color: COLORS.textSecondary }}>
@@ -132,14 +119,27 @@ export default function Footer() {
             </div>
           )}
 
-          {/* Contact Info */}
+          {/* Contact Info - With Clickable Map Link */}
           {FOOTER_CONFIG.showContactInfo && (
             <div>
               <h3 className="font-semibold mb-4" style={{ color: COLORS.textPrimary }}>Contact Info</h3>
               <ul className="space-y-3 text-sm">
                 <li className="flex items-start gap-3">
                   <MapPin size={18} style={{ color: COLORS.iconColor, marginTop: '2px' }} />
-                  <span>{FOOTER_CONFIG.contactInfo.address}</span>
+                  <a 
+                    href={FOOTER_CONFIG.contactInfo.mapsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="transition-colors duration-300 hover:underline inline-flex items-center gap-1"
+                    style={{ 
+                      color: hoveredLink === 'address' ? COLORS.textHover : COLORS.textSecondary 
+                    }}
+                    onMouseEnter={() => setHoveredLink('address')}
+                    onMouseLeave={() => setHoveredLink(null)}
+                  >
+                    {FOOTER_CONFIG.contactInfo.address}
+                    <ExternalLink size={12} />
+                  </a>
                 </li>
                 <li className="flex items-center gap-3">
                   <Phone size={18} style={{ color: COLORS.iconColor }} />
@@ -245,9 +245,29 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* Mini Map Preview */}
+        <div className="mt-8 mb-6">
+          <a 
+            href={FOOTER_CONFIG.contactInfo.mapsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block rounded-lg overflow-hidden hover:opacity-90 transition-opacity"
+          >
+            <img 
+              src="https://maps.googleapis.com/maps/api/staticmap?center=Mogonga,Kisii,Kenya&zoom=14&size=600x150&maptype=roadmap&markers=color:red%7C-Mogonga,Kisii,Kenya&key=YOUR_API_KEY"
+              alt="Map to Mogonga Children Care"
+              className="w-full h-32 object-cover"
+              onError={(e) => {
+                // Fallback if Google Maps API key is not set
+                e.currentTarget.src = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15955.472654059368!2d34.7666!3d-0.6833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182b3c7f8e2b4b4b%3A0x8b4b4b4b4b4b4b4b!2sMogonga%2C%20Kenya!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s"
+              }}
+            />
+          </a>
+        </div>
+
         {/* Bottom Bar */}
         <div 
-          className="mt-8 pt-6 text-center text-sm"
+          className="pt-6 text-center text-sm"
           style={{ borderTop: `1px solid ${COLORS.borderColor}` }}
         >
           <p style={{ color: COLORS.textSecondary }}>
