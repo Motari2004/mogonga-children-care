@@ -30,7 +30,7 @@ const [videoModal, setVideoModal] = useState({ isOpen: false, src: '', title: ''
               Every Child Deserves <span className="text-amber-400">Love, Care & Hope</span>
             </h1>
             <p className="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
-              Mogonga Children Care provides a safe, nurturing home for orphaned and vulnerable children in Kisii, Kenya.
+              Riamanoti Mogonga Children Care provides a safe, nurturing home for orphaned and vulnerable children in Kisii, Kenya.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <Link href="/support" className="bg-amber-500 hover:bg-amber-600 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 shadow-lg hover:shadow-xl inline-block">
