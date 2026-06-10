@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react'
 import Link from 'next/link'
-import { Calendar, Heart, Play, X, Pause, Volume2, VolumeX, Maximize, Minimize } from 'lucide-react'
+import { Heart, Play, X, Pause, Volume2, VolumeX, Maximize, Minimize } from 'lucide-react'
 
 export default function GalleryPage() {
   const [selectedMedia, setSelectedMedia] = useState<{ type: string; url: string; title: string; poster?: string } | null>(null)
@@ -25,7 +25,6 @@ export default function GalleryPage() {
       type: "video",
       mediaUrl: "/videos/serving-rice.mp4",
       poster: "/images/serving-rice-poster.png",
-      date: "June 2024"
     },
     // Video 2 - Children drinking tea and eating bananas
     {
@@ -36,7 +35,6 @@ export default function GalleryPage() {
       type: "video",
       mediaUrl: "/videos/tea-and-ndizi.mp4",
       poster: "/images/tea-ndizi-poster.jpg",
-      date: "June 2024"
     },
     // Image 1 - Children washing hands in a queue
     {
@@ -46,7 +44,6 @@ export default function GalleryPage() {
       category: "Daily Life",
       type: "image",
       mediaUrl: "/images/hand-washing-queue.jpg",
-      date: "May 2024"
     },
     // Image 2 - Children after raising the flag
     {
@@ -56,7 +53,6 @@ export default function GalleryPage() {
       category: "Activities",
       type: "image",
       mediaUrl: "/images/flag-raising.jpg",
-      date: "May 2024"
     },
     // Image 3 - Children eating inside the classroom
     {
@@ -66,29 +62,208 @@ export default function GalleryPage() {
       category: "Meals",
       type: "image",
       mediaUrl: "/images/eating-in-class.jpg",
-      date: "May 2024"
     },
-    // Additional video - Play & Recreation
+    // NEW: Children sleeping - Bedtime
     {
       id: 6,
+      title: "Children sleeping",
+      description: "Limited space forces children to sleep close together with minimal bedding and poor sleeping conditions.",
+      category: "Daily Life",
+      type: "image",
+      mediaUrl: "/images/sleeping.jpg",
+    },
+    // NEW: Children sleeping - Dormitory
+    {
+      id: 7,
+      title: "Sleeping Conditions",
+      description: "Due to lack of beds the children are forced to sleep at the floor",
+      category: "Daily Life",
+      type: "image",
+      mediaUrl: "/images/sleeping2.jpg",
+    },
+
+
+
+
+
+    {
+      id: 8,
+      title: "Bedtime Challenges",
+      description: "Children sleeping on worn-out mattresses with insufficient blankets. Your support can help provide proper bedding.",
+      category: "Daily Life",
+      type: "image",
+      mediaUrl: "/images/sleeping3.jpg",
+    },
+
+
+
+
+
+
+
+
+
+
+
+
+
+    {
+      id: 9,
+      title: "Bad Water Conditions",
+      description: "Children collecting water from unsafe sources. The water is dirty and contaminated, causing health problems.",
+      category: "Daily Life",
+      type: "image",
+      mediaUrl: "/images/bad-water.jpg",
+    },
+
+
+
+
+
+
+
+
+
+    {
+      id: 14,
+      title: "Pastor Manoti - Hard Work for the Children",
+      description: "Pastor Manoti crushing rocks to earn money. Despite the difficult work, he uses part of his earnings to support the children at Riamanoti Mogonga Children Care and provide for his family.",
+      category: "Supporters",
+      type: "image",
+      mediaUrl: "/images/pastor-manoti-rock-crushing.jpg",
+    },
+
+
+
+
+
+
+
+    // Pastor Manoti - Theological School Graduation 1
+    {
+      id: 15,
+      title: "Pastor Manoti's Graduation - Theological School",
+      description: "Pastor Manoti celebrating his graduation from theological school after years of dedicated study and sacrifice.",
+      category: "Supporters",
+      type: "image",
+      mediaUrl: "/images/pastor-manoti-graduation-1.jpg",
+    },
+
+
+
+    // Pastor Manoti with his Bishop
+    {
+      id: 16,
+      title: "Pastor Manoti with His Bishop",
+      description: "Pastor Manoti posing with his Bishop during the theological school graduation ceremony. A proud moment of spiritual achievement.",
+      category: "Supporters",
+      type: "image",
+      mediaUrl: "/images/pastor-manoti-with-bishop.jpg",
+    },
+
+
+
+    // Pastor Manoti - Theological School Graduation 3
+    {
+      id: 17,
+      title: "Celebrating Achievement",
+      description: "Pastor Manoti with fellow graduates at the theological school commencement.",
+      category: "Supporters",
+      type: "image",
+      mediaUrl: "/images/pastor-manoti-graduation-3.jpg",
+    },
+
+
+
+
+
+    // Pastor Manoti - Church Ordination 1
+    {
+      id: 18,
+      title: "Pastor Manoti's Ordination Ceremony",
+      description: "Pastor Manoti being ordained as a pastor during a special church ceremony, dedicating his life to serving God and the community.",
+      category: "Supporters",
+      type: "image",
+      mediaUrl: "/images/pastor-manoti-ordination-1.jpg",
+    },
+
+
+    // Pastor Manoti - Church Ordination 2
+    {
+      id: 19,
+      title: "Bishops Praying for Pastor Manoti",
+      description: "Bishops laying hands on Pastor Manoti and praying for him during his ordination ceremony, commissioning him for ministry.",
+      category: "Supporters",
+      type: "image",
+      mediaUrl: "/images/pastor-manoti-ordination-2.jpg",
+    },
+  
+
+
+
+    // Additional video - Play & Recreation
+    {
+      id: 10,
       title: "Play & Recreation",
       description: "Fun-filled playtime activities that promote physical health and social bonding.",
       category: "Activities",
       type: "video",
       mediaUrl: "/videos/play-recreation.mp4",
       poster: "/images/play-recreation-poster.png",
-      date: "February 2024"
     },
+
+
+
+
+
+
+
     // Additional image - Learning Time
     {
-      id: 7,
+      id: 11,
       title: "Learning Time",
       description: "Children engaged in educational activities with our dedicated teachers.",
       category: "Education",
       type: "image",
       mediaUrl: "/images/learning-time.jpg",
-      date: "March 2024"
+    },
+
+
+
+
+
+    // Pastor Manoti donating pens to children
+    {
+      id: 12,
+      title: "Pastor Manoti Gifting Children School Supplies",
+      description: "Pastor Manoti generously donating pens, books, and other school supplies to support children's education at Riamanoti Mogonga Children Care.",
+      category: "Donations",
+      type: "video",
+      mediaUrl: "/videos/pastor-manoti-donating.mp4",
+      poster: "/images/donor.jpg",
+    },
+
+
+
+    // Child reciting a poem
+    {
+      id: 13,
+      title: "Child Reciting a Poem",
+      description: "One of our talented children showcasing their creativity by reciting a beautiful poem.",
+      category: "Talents",
+      type: "video",
+      mediaUrl: "/videos/child-poem.mp4",
+      poster: "/images/poem.jpg",
     }
+
+
+
+
+
+
+
+
+
   ]
 
   const categories = ['All', 'Meals', 'Daily Life', 'Activities', 'Education']
@@ -264,19 +439,17 @@ export default function GalleryPage() {
                     )}
                     <h3 className="text-xl font-semibold text-gray-800">{item.title}</h3>
                   </div>
-                  <p className="text-gray-600 mb-3 line-clamp-2">{item.description}</p>
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2 text-sm text-emerald-600">
-                      <Calendar className="h-4 w-4" />
-                      <span>{item.date}</span>
-                    </div>
-                    <button 
-                      className="text-gray-400 hover:text-red-500 transition-colors duration-300"
-                      onClick={(e) => e.stopPropagation()}
-                    >
-                      <Heart className="h-5 w-5" />
-                    </button>
-                  </div>
+
+
+                  <p className="text-gray-600 mb-3">{item.description}</p>
+
+
+                  <button 
+                    className="text-gray-400 hover:text-red-500 transition-colors duration-300"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <Heart className="h-5 w-5" />
+                  </button>
                 </div>
               </div>
             ))}

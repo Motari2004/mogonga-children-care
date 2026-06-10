@@ -37,7 +37,7 @@ export default function AboutPage() {
                 leaving many vulnerable children without parents or guardians.
               </p>
               <p className="text-gray-600 mb-4 leading-relaxed">
-                In response to this crisis, Mogonga Children Care was founded in 2013 by a group of 
+                In response to this crisis, Riamanoti Mogonga Children Care was founded in 2013 by a group of 
                 passionate community members who witnessed the growing need for a safe haven. 
                 What started as a small home caring for just 10 children has blossomed into a thriving 
                 community that now supports over 50 children.
@@ -57,7 +57,7 @@ export default function AboutPage() {
             </div>
             <div className="relative">
               <img 
-                src="https://images.unsplash.com/photo-1542810634-71277d95dcbb?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+                src="/images/about.jpg"
                 alt="Children at Mogonga"
                 className="rounded-2xl shadow-xl w-full h-[350px] object-cover"
               />
@@ -213,57 +213,13 @@ export default function AboutPage() {
             </div>
           </div>
 
-          {/* Our Team Section */}
-          <div className="mb-12">
-            <div className="text-center mb-8">
-              <h2 className="text-3xl font-bold text-gray-800 mb-3">Our Dedicated Team</h2>
-              <div className="w-20 h-1 bg-amber-500 mx-auto mb-4"></div>
-              <p className="text-gray-600 max-w-2xl mx-auto">
-                Meet the passionate individuals who make our work possible
-              </p>
-            </div>
-            
-            <div className="grid md:grid-cols-3 gap-6">
-              <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all text-center">
-                <img 
-                  src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                  alt="Jane Akinyi"
-                  className="w-full h-56 object-cover"
-                />
-                <div className="p-5">
-                  <h3 className="text-xl font-semibold text-gray-800">Jane Akinyi</h3>
-                  <p className="text-emerald-600 text-sm mb-2">Director & Founder</p>
-                  <p className="text-gray-500 text-sm">Over 20 years of experience in child welfare</p>
-                </div>
-              </div>
-              
-              <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all text-center">
-                <img 
-                  src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                  alt="John Otieno"
-                  className="w-full h-56 object-cover"
-                />
-                <div className="p-5">
-                  <h3 className="text-xl font-semibold text-gray-800">John Otieno</h3>
-                  <p className="text-emerald-600 text-sm mb-2">Programs Coordinator</p>
-                  <p className="text-gray-500 text-sm">Passionate about education and youth</p>
-                </div>
-              </div>
-              
-              <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all text-center">
-                <img 
-                  src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                  alt="Mary Wanjiku"
-                  className="w-full h-56 object-cover"
-                />
-                <div className="p-5">
-                  <h3 className="text-xl font-semibold text-gray-800">Mary Wanjiku</h3>
-                  <p className="text-emerald-600 text-sm mb-2">Head of Caregiving</p>
-                  <p className="text-gray-500 text-sm">Dedicated to children's emotional well-being</p>
-                </div>
-              </div>
-            </div>
-          </div>
+
+
+
+
+
+
+
 
           {/* CTA Section */}
           <div className="bg-gradient-to-r from-emerald-700 to-emerald-800 rounded-2xl p-8 text-center text-white">

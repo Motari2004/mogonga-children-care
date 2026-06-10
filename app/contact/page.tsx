@@ -57,7 +57,7 @@ export default function ContactPage() {
                 <div>
                   <h3 className="font-semibold text-gray-800">Email</h3>
                   <a href="mailto:info@mogongachildren.org" className="text-gray-600 hover:text-emerald-600">
-                    info@mogongachildren.org
+                    evansmanoti@yahoo.com
                   </a>
                 </div>
               </div>
@@ -85,21 +85,15 @@ export default function ContactPage() {
           </div>
         </div>
 
-        {/* Contact Form */}
-        <div className="mt-12 bg-white rounded-xl shadow-md p-8">
-          <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">Send us a Message</h2>
-          <form className="space-y-4 max-w-2xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-4">
-              <input type="text" placeholder="Your Name" className="w-full border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-emerald-500" />
-              <input type="email" placeholder="Your Email" className="w-full border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-emerald-500" />
-            </div>
-            <input type="text" placeholder="Subject" className="w-full border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-emerald-500" />
-            <textarea rows={5} placeholder="Your Message" className="w-full border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-emerald-500"></textarea>
-            <button className="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-lg font-semibold w-full transition">
-              Send Message
-            </button>
-          </form>
-        </div>
+
+
+
+
+
+
+
+
+
       </div>
     </div>
   )

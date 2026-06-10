@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Heart, Phone, Copy, Check, CreditCard, Globe, Send } from 'lucide-react'
+import { Heart, Phone, Copy, Check, CreditCard, Globe, Send, HandHeart } from 'lucide-react'
 
 export default function SupportPage() {
   const [copiedPayPal, setCopiedPayPal] = useState(false)
@@ -24,6 +24,25 @@ export default function SupportPage() {
 
   return (
     <div className="container-custom py-16">
+
+      {/* Prayer Request Section */}
+      <div className="max-w-3xl mx-auto mb-12 bg-gradient-to-r from-amber-50 to-emerald-50 rounded-2xl p-8 text-center border border-amber-200">
+        <div className="bg-amber-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+          <HandHeart className="h-8 w-8 text-amber-600" />
+        </div>
+        <h2 className="text-2xl font-bold text-gray-800 mb-3">A Humble Prayer Request</h2>
+        <p className="text-gray-700 mb-4 leading-relaxed">
+          To anyone who has gone through our website and has been inspired to help the orphans, 
+          we humbly ask for your support. Anything small can be of much help, and we will appreciate it 
+          from the bottom of our hearts. Your generosity, whether big or small, makes a difference 
+          in the life of a child. May God bless you abundantly.
+        </p>
+        <p className="text-emerald-600 font-semibold italic">
+          "Whoever is generous to the poor lends to the Lord, and He will repay him for his deed." 
+          - Proverbs 19:17
+        </p>
+      </div>
+      
       <h1 className="text-4xl font-bold text-center mb-4">Support Our Children</h1>
       <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
         Your generous donation helps provide food, shelter, education, and medical care to orphaned children.
@@ -62,16 +81,6 @@ export default function SupportPage() {
                 </>
               )}
             </button>
-
-            <a 
-              href="https://www.paypal.com/paypalme/mogongachildren"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-4 bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg transition flex items-center justify-center gap-2 w-full"
-            >
-              <Send className="h-5 w-5" />
-              <span>Donate with PayPal</span>
-            </a>
 
             <div className="mt-6 text-left text-sm text-blue-200">
               <p className="font-semibold mb-2 text-center">How to donate via PayPal:</p>
@@ -139,7 +148,7 @@ export default function SupportPage() {
         {/* Local Transfer Option */}
         <div className="mt-8 bg-gradient-to-r from-emerald-600 to-emerald-700 rounded-xl shadow-lg p-8 text-center text-white">
           <div className="bg-white/20 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
-            <Phone className="h-10 w-10" />
+            <Heart className="h-10 w-10" />
           </div>
           <h2 className="text-2xl font-bold mb-2">Local Transfer For Any Donation</h2>
           <p className="text-emerald-100 mb-6">For donors within Kenya</p>
@@ -154,10 +163,6 @@ export default function SupportPage() {
               <p className="text-2xl font-bold">1283066505</p>
             </div>
           </div>
-
-
-
-
         </div>
 
         <p className="text-center text-gray-500 text-xs mt-6">
