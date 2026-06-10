@@ -19,7 +19,7 @@ const COLORS = {
 
 const FOOTER_CONFIG = {
   orgName: 'Mogonga Care',
-  orgDescription: 'Providing hope, love, and education to orphaned and vulnerable children in Kisii, Kenya since 2010.',
+  orgDescription: 'Providing hope, love, and education to orphaned and vulnerable children in Kisii, Kenya since 2013.',
   
   quickLinks: [
     { name: 'About Us', href: '/about' },
@@ -34,7 +34,7 @@ const FOOTER_CONFIG = {
     mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Mogonga+Kisii+Kenya',
     mapsEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15955.472654059368!2d34.7666!3d-0.6833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182b3c7f8e2b4b4b%3A0x8b4b4b4b4b4b4b4b!2sMogonga%2C%20Kenya!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s',
     phone: '+254 712 713 601',
-    email: 'info@mogongachildren.org',
+    email: 'evansmanoti@yahoo.com',
   },
   
   bottomLinks: [
