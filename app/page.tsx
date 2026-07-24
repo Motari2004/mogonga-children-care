@@ -172,11 +172,12 @@ const [mediaModal, setMediaModal] = useState({
             {/* Gallery Item 2 - Video */}
             <div 
               className="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 cursor-pointer"
-              onClick={() => setVideoModal({ 
-                isOpen: true, 
-                src: "/videos/play-recreation.mp4", 
-                title: "Play & Recreation" 
-              })}
+onClick={() => setMediaModal({ 
+  isOpen: true, 
+  src: "/videos/play-recreation.mp4", 
+  title: "Play & Recreation",
+  type: 'video'
+})}
             >
               <div className="relative h-56 overflow-hidden">
                 <video 
