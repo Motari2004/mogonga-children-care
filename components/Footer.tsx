@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { Heart, Mail, Phone, MapPin, ExternalLink } from 'lucide-react'
+import { Heart, Mail, Phone, MapPin, ExternalLink, Code, Sparkles, ArrowRight } from 'lucide-react'
 import { useState } from 'react'
 
 // ============================================
@@ -15,6 +15,8 @@ const COLORS = {
   textHover: '#34d399',
   iconColor: '#10b981',
   borderColor: '#1f2937',
+  designBg: '#1f2937',
+  designBorder: '#374151',
 }
 
 const FOOTER_CONFIG = {
@@ -37,6 +39,16 @@ const FOOTER_CONFIG = {
     email: 'evansmanoti@yahoo.com',
   },
   
+  // 🆕 NEW: Design Team Contact Info
+  designTeam: {
+    name: 'Web Design & Development Team',
+    description: 'We build beautiful, fast, and responsive websites for organizations like yours.',
+    phone: '+254 716594620', // Update with design team's phone
+    email: 'hopefreymosingi1@gmail.com', // Update with design team's email
+    website: 'https://scorpiotech-digitalsolutions.vercel.app/', // Update with your portfolio
+    services: ['Custom Websites', 'E-Commerce', 'Mobile Apps', 'SEO Optimization'],
+  },
+  
   bottomLinks: [
     { name: 'Privacy Policy', href: '/privacy' },
     { name: 'Terms of Service', href: '/terms' },
@@ -45,6 +57,7 @@ const FOOTER_CONFIG = {
   
   showQuickLinks: true,
   showContactInfo: true,
+  showDesignTeam: true, // Toggle this to show/hide the design team section
   showBottomLinks: true,
 }
 // ============================================
@@ -55,7 +68,7 @@ export default function Footer() {
   return (
     <footer style={{ backgroundColor: COLORS.footerBg, color: COLORS.textSecondary }}>
       <div className="container-custom py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* About Section */}
           <div>
             <div className="flex items-center space-x-2 mb-4">
@@ -147,6 +160,82 @@ export default function Footer() {
                   </a>
                 </li>
               </ul>
+            </div>
+          )}
+
+          {/* 🆕 NEW: Design Team Section */}
+          {FOOTER_CONFIG.showDesignTeam && (
+            <div 
+              className="rounded-xl p-5 border"
+              style={{ 
+                backgroundColor: COLORS.designBg, 
+                borderColor: COLORS.designBorder 
+              }}
+            >
+              <div className="flex items-center gap-2 mb-3">
+                <div className="bg-emerald-500/20 p-1.5 rounded-lg">
+                  <Code className="h-5 w-5" style={{ color: COLORS.iconColor }} />
+                </div>
+                <h3 className="font-semibold text-sm" style={{ color: COLORS.textPrimary }}>
+                  {FOOTER_CONFIG.designTeam.name}
+                </h3>
+              </div>
+              
+              <p className="text-xs leading-relaxed mb-3" style={{ color: COLORS.textSecondary }}>
+                {FOOTER_CONFIG.designTeam.description}
+              </p>
+
+              {/* Services Tags */}
+              <div className="flex flex-wrap gap-1.5 mb-3">
+                {FOOTER_CONFIG.designTeam.services.map((service) => (
+                  <span 
+                    key={service}
+                    className="text-[10px] px-2 py-0.5 rounded-full border"
+                    style={{ 
+                      color: COLORS.textMuted,
+                      borderColor: COLORS.designBorder,
+                    }}
+                  >
+                    {service}
+                  </span>
+                ))}
+              </div>
+
+              {/* Contact Buttons */}
+              <div className="flex flex-col gap-2">
+                <a 
+                  href={`mailto:${FOOTER_CONFIG.designTeam.email}`}
+                  className="inline-flex items-center justify-center gap-2 text-xs font-semibold px-4 py-2 rounded-lg transition-all duration-300 hover:scale-105"
+                  style={{ 
+                    backgroundColor: COLORS.iconColor,
+                    color: '#ffffff',
+                  }}
+                >
+                  <Mail className="h-3.5 w-3.5" />
+                  Email Design Team
+                </a>
+                <a 
+                  href={`tel:${FOOTER_CONFIG.designTeam.phone.replace(/\s/g, '')}`}
+                  className="inline-flex items-center justify-center gap-2 text-xs font-semibold px-4 py-2 rounded-lg transition-all duration-300 hover:scale-105"
+                  style={{ 
+                    backgroundColor: 'transparent',
+                    color: COLORS.textSecondary,
+                    border: `1px solid ${COLORS.designBorder}`,
+                  }}
+                >
+                  <Phone className="h-3.5 w-3.5" />
+                  {FOOTER_CONFIG.designTeam.phone}
+                </a>
+                <a 
+                  href={FOOTER_CONFIG.designTeam.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-1 text-xs transition-colors duration-300"
+                  style={{ color: COLORS.textMuted }}
+                >
+                  View Portfolio <ExternalLink className="h-3 w-3" />
+                </a>
+              </div>
             </div>
           )}
         </div>
