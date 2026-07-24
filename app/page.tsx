@@ -365,19 +365,6 @@ const [mediaModal, setMediaModal] = useState({
                 <span className="font-semibold text-emerald-700">But we need your help</span> to reach the water table and complete the installation of the pump and piping system.
               </p>
 
-              {/* What's Needed */}
-              <div className="grid sm:grid-cols-2 gap-3 mb-6">
-                <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-100">
-                  <div className="text-amber-500 text-xl mb-1">⛏️</div>
-                  <h4 className="font-semibold text-gray-800 text-sm">Complete Drilling</h4>
-                  <p className="text-xs text-gray-500">Reach the water table</p>
-                </div>
-                <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-100">
-                  <div className="text-blue-500 text-xl mb-1">🔧</div>
-                  <h4 className="font-semibold text-gray-800 text-sm">Pump & Piping</h4>
-                  <p className="text-xs text-gray-500">Installation costs</p>
-                </div>
-              </div>
 
               {/* Donate Button for this project */}
               <Link 
