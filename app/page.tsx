@@ -466,7 +466,7 @@ onClick={() => setMediaModal({
                 </div>
               </div>
               <p className="text-xs text-gray-400 mt-2 text-center">
-                📸 Brother Peter and Clare visiting the site • Drilling in action • Our children watching excitedly
+                📸 Drilling in action 
               </p>
             </div>
           </div>
